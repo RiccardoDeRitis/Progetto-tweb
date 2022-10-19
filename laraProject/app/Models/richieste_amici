@@ -1,0 +1,16 @@
+<?php 
+ 
+namespace App\Models;
+
+class RichiesteAmici {
+
+    protected $table = 'Richiesta_amici';
+    protected $primaryKey = 'IDRichieste';
+    public $timestamps = false;
+
+    // Relazione One-To-One con users
+    public function richiesteUtente() {
+        return $this->hasOne(users::class, 'id', 'id');
+    }
+    
+}
