@@ -17,7 +17,7 @@
     font-size: 16px;
     font-weight: bold;
     margin-top: 1%;
-    margin-left: 75%;
+    margin-left: 70%;
     transition-duration: 0.4s;
     cursor: pointer;
     background-color: white;
@@ -662,7 +662,7 @@ body{
 
 .user_data1{
     text-align: left;
-    width: fit-content;
+    width: 40%;
     margin-left: 5%;
     letter-spacing: 1px;
     font-weight: 400;
@@ -705,11 +705,30 @@ body{
 
 .send_request {
     display: inline-block;
-    margin-left: 40%;
     cursor: pointer;
+    font-size: 18px;
     transition: transform .2s;
+    border: none;
+    background-color: transparent;
 }
 
 .send_request:hover {
     transform: scale(1.5);
+}
+
+.user_search_data {
+    display: inline-block;
+    width: 20%;
+    margin-left: 1%;
+    letter-spacing: 1px;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.button_send_request{
+    margin-top: 1%;
+    float: right;
+    margin-right: 3%;
+    display: inline-block; 
+    width: fit-content;
 }

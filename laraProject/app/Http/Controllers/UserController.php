@@ -25,7 +25,7 @@ class UserController extends Controller
     }
 
     public function search() {
-        $search_text=$_GET['search'];
+        $search_text = $_GET['search'];
         $user = $this->user_model->getUserSearch($search_text);
         
         return view('cerca')

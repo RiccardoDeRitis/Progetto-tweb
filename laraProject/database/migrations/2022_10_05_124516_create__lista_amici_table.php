@@ -18,7 +18,7 @@ class CreateListaAmiciTable extends Migration
             $table->bigInteger('IDUtente')->unsigned()->index();
             $table->foreign('IDUtente')->references('id')->on('users');
             $table->integer('IDUtenteAmico');
-            $table->boolean('Amicizia');
+            $table->boolean('Amicizia')->default(0);
         });
     }
 
