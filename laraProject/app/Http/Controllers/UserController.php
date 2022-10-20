@@ -20,13 +20,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function showProfile()
-    {
+    public function showProfile() {
         return view('profile');
     }
 
-    public function search()
-    {
+    public function search() {
         $search_text=$_GET['search'];
         $user = $this->user_model->getUserSearch($search_text);
         

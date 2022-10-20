@@ -20,6 +20,11 @@
                 <input type="text" id="Telefono" class="form-control" name="Telefono" placeholder="Telefono">
                 <p class="errorTelefono" style="color: #f93d00">  • 'Telefono' è richiesto </p> 
             </div>
+            <div class="form-group">
+                <span class="input-icon"><i class="fa fa-city"></i></span>
+                <input type="text" id="Città" class="form-control" name="Città" placeholder="Città">
+                <p class="errorCittà" style="color: #f93d00">  • 'Città' è richiesto </p> 
+            </div>
             <div class="form-group">              
                 <span class="input-icon"><i class="fa fa-map-marker"></i></span>
                 <input type="text" id="Indirizzo" class="form-control" name="Indirizzo" placeholder="Indirizzo">
@@ -35,6 +40,7 @@
                 $('.errorNome').hide();
                 $('.errorCognome').hide();
                 $('.errorTelefono').hide();
+                $('.errorCittà').hide();
                 $('.errorIndirizzo').hide();
                 $('.errorData').hide();
                 $('.sub1').click(function() {
@@ -51,6 +57,10 @@
                         i++;
                         $('.errorTelefono').show();
                     } else { $('.errorTelefono').hide(); }
+                    if($("input[name='Città']").val() == "") {
+                        i++;
+                        $('.errorCittà').show();
+                    } else { $('.errorCittà').hide(); }
                     if($("input[name='Indirizzo']").val() == "") {
                         i++;
                         $('.errorIndirizzo').show();

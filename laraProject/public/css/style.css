@@ -17,7 +17,7 @@
     font-size: 16px;
     font-weight: bold;
     margin-top: 1%;
-    margin-left: 30%;
+    margin-left: 75%;
     transition-duration: 0.4s;
     cursor: pointer;
     background-color: white;
@@ -646,14 +646,14 @@ body{
     width: 30%;
     letter-spacing: 1px;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 26px;
 }
 
 .user_camp2{
     width: 30%;
     letter-spacing: 1px;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 26px;
 }
 
 .user_data {
@@ -673,5 +673,43 @@ body{
     width: 9%;
     letter-spacing: 1px;
     font-weight: 400;
+    font-size: 26px;
+}
+
+.container_user{
+    margin-left: 5%;
+    width: 90%;
+    border-radius: 50px;
+    border: 1px solid whitesmoke;
+    margin-bottom: 1%;
+}
+
+.user_data_desc{
+    text-align: left;
+    width: fit-content;
+    margin-left: 5%;
+    letter-spacing: 1px;
+    font-weight: 400;
     font-size: 24px;
+}
+
+#desc_data{
+    display: none;
+    position: absolute;
+}
+
+#desc_data.active {
+    display: block;
+    position: relative;
+}
+
+.send_request {
+    display: inline-block;
+    margin-left: 40%;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.send_request:hover {
+    transform: scale(1.5);
 }

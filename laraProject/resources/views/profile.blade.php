@@ -16,7 +16,7 @@
         </div>
         <div class="user_data">
             <p class="user_camp1" style="display: inline-block"> Indirizzo </p>
-            <p class="user_data1" style="display: inline-block"> {{ Auth::user()->Indirizzo }} </p>
+            <p class="user_data1" style="display: inline-block"> {{ Auth::user()->Indirizzo}}, {{Auth::user()->Città }} </p>
         </div>
         <div class="user_data">
             <p class="user_camp1" style="display: inline-block"> Telefono </p>
