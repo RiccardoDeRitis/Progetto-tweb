@@ -14,14 +14,40 @@
         <h1 class="user_search_data" style="width: 10%;"> Anni: 22 </h1>
                 
         <div class="button_send_request">
-            <form method="POST" action="{{route('richiesta')}}">
-                @csrf
 
-                <input type="hidden" name="id" value={{Auth::user()->id}}>
-                <input type="hidden" name="idAmico" value={{$user->id}}>
-                <button type="submit" class="send_request"><span aria-hidden="true"><i class="fa fa-user-plus"></i></span></button>
-            </form>
+                @if (count($amici) == 0)
+                    <form method="POST" action="{{route('richiesta')}}">
+                        @csrf
+                        <input type="hidden" name="id" value={{Auth::user()->id}}>
+                        <input type="hidden" name="idAmico" value={{$user->id}}>
+                        <button type="submit" class="send_request"><span aria-hidden="true"><i class="fa fa-user-plus"></i></span></button>
+                    </form>
+                @else
+                    @for ($i = 0; $i < count($amici); $i++)
+                        @if($user->id == $amici[$i]->IDUtenteAmico && $amici[$i]->IDUtente == Auth::user()->id)
+                            @if($amici[$i]->Amicizia == 0)
+                                <a class="send_request"><span aria-hidden="true"><i class="fa fa-spinner"></i></span>
+                                @break
+                            @else
+                                <a class="send_request"><span aria-hidden="true"><i class="fa fa-check"></i></span>
+                                @break
+                            @endif
+                        @endif
+                        @if($i == count($amici) - 1)
+                            <form method="POST" action="{{route('richiesta')}}">
+                                @csrf
+                
+                                <input type="hidden" name="id" value={{Auth::user()->id}}>
+                                <input type="hidden" name="idAmico" value={{$user->id}}>
+                                <button type="submit" class="send_request"><span aria-hidden="true"><i class="fa fa-user-plus"></i></span></button>
+                            </form>
+                            @break
+                        @endif
+                    @endfor
+                @endif
+
         </div>
+
     </div>
 
 @endforeach
