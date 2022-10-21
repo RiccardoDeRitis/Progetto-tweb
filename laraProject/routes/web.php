@@ -21,3 +21,5 @@ Route::get('/profile', 'UserController@showProfile')->name('profile');
 Route::get('/cerca', 'UserController@search')->name('cerca');
 
 Route::post('/richiesta', 'AmiciController@request')->name('richiesta');
+
+Route::post('/accetta_richiesta', 'AmiciController@accept_request')->name('accetta_richiesta');

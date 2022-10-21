@@ -21,5 +21,12 @@ class AmiciController extends Controller
         $this->amici_model->sendRequest($id, $idAmico);
         return back();
     }
+
+    public function accept_request() {
+        $id = $_POST['id'];
+        $idAmico = $_POST['idAmico'];
+        $this->amici_model->acceptRequest($id, $idAmico);
+        return back();
+    }
     
 }

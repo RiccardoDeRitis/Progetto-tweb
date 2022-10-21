@@ -12,41 +12,62 @@
         <h1 class="user_search_data"> {{$user->Nome}} {{$user->Cognome}} </h1>
         <h1 class="user_search_data" style="width: 15%;"> {{$user->Città}} </h1>
         <h1 class="user_search_data" style="width: 10%;"> Anni: 22 </h1>
-                
-        <div class="button_send_request">
 
-                @if (count($amici) == 0)
-                    <form method="POST" action="{{route('richiesta')}}">
-                        @csrf
-                        <input type="hidden" name="id" value={{Auth::user()->id}}>
-                        <input type="hidden" name="idAmico" value={{$user->id}}>
-                        <button type="submit" class="send_request"><span aria-hidden="true"><i class="fa fa-user-plus"></i></span></button>
-                    </form>
-                @else
-                    @for ($i = 0; $i < count($amici); $i++)
-                        @if($user->id == $amici[$i]->IDUtenteAmico && $amici[$i]->IDUtente == Auth::user()->id)
-                            @if($amici[$i]->Amicizia == 0)
-                                <a class="send_request"><span aria-hidden="true"><i class="fa fa-spinner"></i></span>
-                                @break
-                            @else
-                                <a class="send_request"><span aria-hidden="true"><i class="fa fa-check"></i></span>
-                                @break
-                            @endif
-                        @endif
-                        @if($i == count($amici) - 1)
-                            <form method="POST" action="{{route('richiesta')}}">
-                                @csrf
-                
-                                <input type="hidden" name="id" value={{Auth::user()->id}}>
-                                <input type="hidden" name="idAmico" value={{$user->id}}>
-                                <button type="submit" class="send_request"><span aria-hidden="true"><i class="fa fa-user-plus"></i></span></button>
-                            </form>
+        @if (count($amici) == 0 &&  $user->id != Auth::user()->id)
+            <div class="button_send_request">
+                <form method="POST" action="{{route('richiesta')}}">
+                    @csrf
+
+                    <input type="hidden" name="id" value={{Auth::user()->id}}>
+                    <input type="hidden" name="idAmico" value={{$user->id}}>
+                    <button type="submit" class="send_request"><span aria-hidden="true"><i class="fa fa-user-plus"></i></span></button>
+                </form>
+            </div>
+        @else
+            @for ($i = 0; $i < count($amici); $i++)
+                @if(($user->id == $amici[$i]->IDUtenteAmico && $amici[$i]->IDUtente == Auth::user()->id) || ($user->id == $amici[$i]->IDUtente && $amici[$i]->IDUtenteAmico == Auth::user()->id))
+                    @if($amici[$i]->Amicizia == 0)
+                        @if($user->id == $amici[$i]->IDUtente && $amici[$i]->IDUtenteAmico == Auth::user()->id)
+                            <div class="button_send_request">
+                                <a class="send_request" style="color: red"><span aria-hidden="true"><i class="fa fa-remove"></i></span></a>
+                            </div>
+                            <div class="button_send_request">
+                                <form method="POST" action="{{route('accetta_richiesta')}}">
+                                    @csrf
+
+                                    <input type="hidden" name="id" value={{Auth::user()->id}}>
+                                    <input type="hidden" name="idAmico" value={{$user->id}}>
+                                    <button type="submit" class="send_request" style="color: green"><span aria-hidden="true"><i class="fa fa-check"></i></span></button>
+                                </form>
+                            </div>
+                            @break
+                        @else
+                            <div class="button_send_request">
+                                <a class="send_request" style="cursor: default"><span aria-hidden="true"><i class="fa fa-spinner"></i></span></a>
+                            </div>
                             @break
                         @endif
-                    @endfor
+                    @else
+                        <div class="button_send_request">
+                            <a class="send_request" style="cursor: default"><span aria-hidden="true"><i class="fa fa-circle-check"></i></span></a>
+                        </div>
+                        @break
+                    @endif
                 @endif
-
-        </div>
+                @if($i == count($amici) - 1 && $user->id != Auth::user()->id)
+                    <div class="button_send_request">
+                        <form method="POST" action="{{route('richiesta')}}">
+                            @csrf
+            
+                            <input type="hidden" name="id" value={{Auth::user()->id}}>
+                            <input type="hidden" name="idAmico" value={{$user->id}}>
+                            <button type="submit" class="send_request"><span aria-hidden="true"><i class="fa fa-user-plus"></i></span></button>
+                        </form>
+                    </div>
+                    @break
+                @endif
+            @endfor
+        @endif
 
     </div>
 
