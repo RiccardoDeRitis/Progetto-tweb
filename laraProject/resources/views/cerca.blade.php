@@ -29,7 +29,15 @@
                     @if($amici[$i]->Amicizia == 0)
                         @if($user->id == $amici[$i]->IDUtente && $amici[$i]->IDUtenteAmico == Auth::user()->id)
                             <div class="button_send_request">
-                                <a class="send_request" style="color: red"><span aria-hidden="true"><i class="fa fa-remove"></i></span></a>
+                                <form method="POST" action="{{route('cancella_richiesta')}}">
+                                    @csrf
+
+                                    <input type="hidden" name="id" value={{Auth::user()->id}}>
+                                    <input type="hidden" name="idAmico" value={{$user->id}}>
+                                    <input type="hidden" name="Nome" value={{Auth::user()->Nome}}>
+                                    <input type="hidden" name="Cognome" value={{Auth::user()->Cognome}}>
+                                    <button type="submit" class="send_request" style="color: red"><span aria-hidden="true"><i class="fa fa-remove"></i></span></button>
+                                </form>
                             </div>
                             <div class="button_send_request">
                                 <form method="POST" action="{{route('accetta_richiesta')}}">
@@ -37,6 +45,8 @@
 
                                     <input type="hidden" name="id" value={{Auth::user()->id}}>
                                     <input type="hidden" name="idAmico" value={{$user->id}}>
+                                    <input type="hidden" name="Nome" value={{Auth::user()->Nome}}>
+                                    <input type="hidden" name="Cognome" value={{Auth::user()->Cognome}}>
                                     <button type="submit" class="send_request" style="color: green"><span aria-hidden="true"><i class="fa fa-check"></i></span></button>
                                 </form>
                             </div>

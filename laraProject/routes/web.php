@@ -23,3 +23,7 @@ Route::get('/cerca', 'UserController@search')->name('cerca');
 Route::post('/richiesta', 'AmiciController@request')->name('richiesta');
 
 Route::post('/accetta_richiesta', 'AmiciController@accept_request')->name('accetta_richiesta');
+
+Route::post('/cancella_richiesta', 'AmiciController@delete_request')->name('cancella_richiesta');
+
+Route::post('/messaggi', 'MessaggiController@getMessage')->name('messaggi');

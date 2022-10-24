@@ -28,10 +28,14 @@ class Amici_model extends Model {
         Amici_model::where('IDUtente', '=', $idAmico)
                         ->where('IDUtenteAmico', '=', $id)
                         ->update(['Amicizia' => 1]);
+
+        
     }
 
     public function deleteRequest(int $id, int $idAmico) {
-        Amici_model
+        Amici_model::where('IDUtente', '=', $idAmico)
+                        ->where('IDUtenteAmico', '=', $id)
+                        ->delete();
     }
 
 }

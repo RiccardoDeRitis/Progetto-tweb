@@ -16,7 +16,14 @@
                 <button class="opt"><a href="{{ route('profile') }}" class="link-opt"><i class="fa fa-user" style="width: 20px; margin-left: 3px;"></i> I tuoi dati</a></button>
                 <button class="opt"><i class="fa fa-user-group" style="width: 20px; margin-left: 3px;"></i> I tuoi amici</button>
                 <button class="opt"><i class="fa fa-blog" style="width: 20px; margin-left: 3px;"></i> I tuoi blog</button>
-                <button class="opt"><i class="fa fa-message" style="width: 20px; margin-left: 3px;"></i> Ultimi messaggi</button>
+
+                <form method="POST" action="{{route('messaggi')}}">
+                    @csrf
+                    
+                    <input type="hidden" name="id" value={{Auth::user()->id}}>
+                    <button type="submit" class="opt"><i class="fa fa-message" style="width: 20px; margin-left: 3px;"></i> Ultimi messaggi</button>
+                </form>
+                
             </div>
             <button class="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Esci </button>
             <form id="logout-form" action="{{ route('logout') }}"  method="POST" style="display: none;">
