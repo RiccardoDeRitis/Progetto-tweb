@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('Telefono');
             $table->string('Città');
             $table->string('Indirizzo');
-            $table->string('Data_di_nascita');
+            $table->string('Anni');
             $table->string('Codice_Fiscale');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at');

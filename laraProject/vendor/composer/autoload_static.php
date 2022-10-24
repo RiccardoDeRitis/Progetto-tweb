@@ -417,6 +417,7 @@ class ComposerStaticInit29ececc2d3b85773e51c80005a169c6c
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Controller1' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller1.php',
         'App\\Http\\Controllers\\Controller2' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller2.php',
+        'App\\Http\\Controllers\\MessaggiController' => __DIR__ . '/../..' . '/app/Http/Controllers/MessaggiController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -4586,6 +4587,7 @@ class ComposerStaticInit29ececc2d3b85773e51c80005a169c6c
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'utenti' => __DIR__ . '/../..' . '/database/seeds/utenti.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

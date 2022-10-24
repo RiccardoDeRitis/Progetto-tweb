@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User_model;
 use App\Models\Amici_model;
 use App\Models\Messaggi_model;
 
@@ -10,12 +11,13 @@ class AmiciController extends Controller
 {
     protected $amici_model;
     protected $messaggi_model;
+    protected $user_model;
     
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth');
         $this->amici_model = new Amici_model;
         $this->messaggi_model = new Messaggi_model;
+        $this->user_model = new User_model;
     }
 
     public function request() {
@@ -43,6 +45,15 @@ class AmiciController extends Controller
         $this->amici_model->deleteRequest($id, $idAmico);
         $this->messaggi_model->messageDelete($idAmico, $Nome, $Cognome);
         return back();
+    }
+
+    public function getAmici() {
+        $id = $_POST['id'];
+        $friends = $this->amici_model->getFriends($id);
+        $users = $this->user_model->getUsers();
+        return view('amici')
+                    ->with('amici', $friends)
+                    ->with('utenti', $users);
     }
     
 }

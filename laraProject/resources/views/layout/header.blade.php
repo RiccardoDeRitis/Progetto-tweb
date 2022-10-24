@@ -6,7 +6,7 @@
         @auth    
             <div class="form_search">
                 <form method="GET" action="{{route('cerca')}}">
-                    @csrf
+                    
                     <button type="submit" class="search-icon"><i class="fa fa-search"></i></button>
                     <input type="text" placeholder="Search e-Friend" name="search" class="search">
                 </form>
@@ -14,7 +14,14 @@
             <button class="user-option"><i class="fa fa-user"></i> ▼</button>
             <div class="option">
                 <button class="opt"><a href="{{ route('profile') }}" class="link-opt"><i class="fa fa-user" style="width: 20px; margin-left: 3px;"></i> I tuoi dati</a></button>
-                <button class="opt"><i class="fa fa-user-group" style="width: 20px; margin-left: 3px;"></i> I tuoi amici</button>
+
+                <form method="POST" action="{{route('amici')}}">
+                    @csrf
+
+                    <input type="hidden" name="id" value={{Auth::user()->id}}>
+                    <button class="opt"><i class="fa fa-user-group" style="width: 20px; margin-left: 3px;"></i> I tuoi amici</button>
+                </form>
+                
                 <button class="opt"><i class="fa fa-blog" style="width: 20px; margin-left: 3px;"></i> I tuoi blog</button>
 
                 <form method="POST" action="{{route('messaggi')}}">

@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <span class="input-icon"><i class="fa fa-phone"></i></span>
-                <input type="text" id="Telefono" class="form-control" name="Telefono" placeholder="Telefono">
+                <input type="number" id="Telefono" class="form-control" name="Telefono" placeholder="Telefono">
                 <p class="errorTelefono" style="color: #f93d00">  • 'Telefono' è richiesto </p> 
             </div>
             <div class="form-group">
@@ -32,8 +32,8 @@
             </div>
             <div class="form-group">
                 <span class="input-icon"><i class="fa fa-calendar"></i></span>
-                <input type="text" id="Data_di_nascita" class="form-control" name="Data_di_nascita" placeholder="Data di nascita">
-                <p class="errorData" style="color: #f93d00">  • 'Data di nascita' è richiesto </p> 
+                <input type="number" id="Anni" class="form-control" name="Anni" placeholder="Anni">
+                <p class="errorAnni" style="color: #f93d00">  • 'Anni' è richiesto </p> 
             </div>
             <a class="sub1"> Continua con la registrazione </a>
             <script>
@@ -42,7 +42,7 @@
                 $('.errorTelefono').hide();
                 $('.errorCittà').hide();
                 $('.errorIndirizzo').hide();
-                $('.errorData').hide();
+                $('.errorAnni').hide();
                 $('.sub1').click(function() {
                     var i = 0;
                     if($("input[name='Nome']").val() == "") {
@@ -67,8 +67,8 @@
                     } else { $('.errorIndirizzo').hide(); }
                     if($("input[name='Data_di_nascita']").val() == "") {
                         i++;
-                        $('.errorData').show();
-                    } else { $('.errorData').hide(); }
+                        $('.errorAnni').show();
+                    } else { $('.errorAnni').hide(); }
                     if (i == 0) {
                         $('.popup3').addClass('active');
                         $('.popup2').removeClass('active');

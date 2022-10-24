@@ -11,7 +11,12 @@ class User_model extends Model {
     public $timestamps = false;
 
     public function getUserSearch(string $search) {
-        $users=User_model::where('Nome','LIKE','%'.$search.'%')->get();
+        $users = User_model::where('Nome','LIKE','%'.$search.'%')->get();
+        return $users;
+    }
+
+    public function getUsers() {
+        $users = User_model::get();
         return $users;
     }
 

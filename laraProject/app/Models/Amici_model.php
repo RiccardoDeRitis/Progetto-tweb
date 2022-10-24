@@ -19,6 +19,13 @@ class Amici_model extends Model {
         ]);
     }
 
+    public function getFriends(int $id) {
+        $friends = Amici_model::where('IDUtente', '=', $id)
+                                    ->orWhere('IDUtenteAmico', '=', $id)
+                                    ->get();
+        return $friends;
+    }
+
     public function getAllFriends() {
         $friends = Amici_model::get();
         return $friends;
@@ -28,8 +35,6 @@ class Amici_model extends Model {
         Amici_model::where('IDUtente', '=', $idAmico)
                         ->where('IDUtenteAmico', '=', $id)
                         ->update(['Amicizia' => 1]);
-
-        
     }
 
     public function deleteRequest(int $id, int $idAmico) {

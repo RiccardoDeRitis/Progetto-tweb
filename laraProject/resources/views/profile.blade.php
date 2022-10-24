@@ -37,8 +37,8 @@
             <p class="user_data1" style="display: inline-block"> {{ Auth::user()->Visibilità}} </p>
         </div>
         <div class="user_data">
-            <p class="user_camp1" style="display: inline-block"> Data di nascita </p>
-            <p class="user_data1" style="display: inline-block"> {{ Auth::user()->Data_di_nascita }} </p>
+            <p class="user_camp1" style="display: inline-block"> Anni </p>
+            <p class="user_data1" style="display: inline-block"> {{ Auth::user()->Anni }} </p>
         </div>
     </div>
     <div class="user_data" style="margin-left: 13%">

@@ -27,3 +27,5 @@ Route::post('/accetta_richiesta', 'AmiciController@accept_request')->name('accet
 Route::post('/cancella_richiesta', 'AmiciController@delete_request')->name('cancella_richiesta');
 
 Route::post('/messaggi', 'MessaggiController@getMessage')->name('messaggi');
+
+Route::post('/amici', 'AmiciController@getAmici')->name('amici');
