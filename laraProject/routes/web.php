@@ -31,3 +31,5 @@ Route::post('/messaggi', 'MessaggiController@getMessage')->name('messaggi');
 Route::post('/amici', 'AmiciController@getAmici')->name('amici');
 
 Route::post('/post', 'PostController@createPost')->name('post');
+
+Route::post('/myblog', 'PostController@getPosts')->name('myblog');

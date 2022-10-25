@@ -19,12 +19,12 @@ class PostController extends Controller
         $this->user_model = new User_model;
     }
 
-    public function getPost() {
+    public function getPosts() {
         $idUtente = $_POST["idUtente"];
         $idBlog = $_POST["idBlog"];
         $posts = $this->post_model->getPost($idUtente, $idBlog);
         $users = $this->user_model->getUsers();
-        return view('post')
+        return view('myblog')
                ->with('posts', $posts)
                ->with('utenti', $users);
     }
