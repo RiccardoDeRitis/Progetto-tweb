@@ -30,6 +30,11 @@ Route::post('/messaggi', 'MessaggiController@getMessage')->name('messaggi');
 
 Route::post('/amici', 'AmiciController@getAmici')->name('amici');
 
-Route::post('/post', 'PostController@createPost')->name('post');
+Route::get('/blogsPage', 'userController@getBlogs')->name('blogsPage');
 
-Route::post('/myblog', 'PostController@getPosts')->name('myblog');
+Route::get('/miei_blog', 'UserController@showMieiBlog')->name('miei_blog');
+
+Route::view('/crea_blog', 'crea_blog')->name('crea_blog');
+
+Route::post('/crea_blog', 'UserController@creaBlog')
+        ->name('crea_blog');

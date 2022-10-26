@@ -8,6 +8,13 @@
         <h1>Incontra gente nuova</h1>
         <p>Stringi nuove amicizie pubblicando, commentando nuovi post</p>
     </div>
+    @auth
+    <h1>MOST POPULAR BLOG</h1>
+    @foreach($blogs as $blog)
+            <h2>{{$blog->Titolo}}</h2>
+            <h3>{{$blog->Descrizione}}</h3>
+    @endforeach
+    @endauth
     <div class="relative">
         <div class="absolute" style="margin-left: 50%">
             <h1 style="margin-block:auto;">SCOPO</h1>

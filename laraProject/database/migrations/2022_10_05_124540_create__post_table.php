@@ -15,7 +15,6 @@ class CreatePostTable extends Migration
     {
         Schema::create('Post', function (Blueprint $table) {
             $table->bigIncrements('IDPost');
-            $table->string('Titolo', 105);
             $table->string('Descrizione', 105);
             $table->string('Data', 45);
             $table->integer('Like');
