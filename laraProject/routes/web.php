@@ -22,13 +22,13 @@ Route::get('/cerca', 'UserController@search')->name('cerca');
 
 Route::post('/richiesta', 'AmiciController@request')->name('richiesta');
 
-Route::post('/accetta_richiesta', 'AmiciController@accept_request')->name('accetta_richiesta');
+Route::get('/accetta_richiesta', 'AmiciController@accept_request')->name('accetta_richiesta');
 
-Route::post('/cancella_richiesta', 'AmiciController@delete_request')->name('cancella_richiesta');
+Route::get('/cancella_richiesta', 'AmiciController@delete_request')->name('cancella_richiesta');
 
 Route::post('/messaggi', 'MessaggiController@getMessage')->name('messaggi');
 
-Route::post('/amici', 'AmiciController@getAmici')->name('amici');
+Route::get('/amici', 'AmiciController@getAmici')->name('amici');
 
 Route::get('/blogsPage', 'userController@getBlogs')->name('blogsPage');
 
@@ -38,3 +38,5 @@ Route::view('/crea_blog', 'crea_blog')->name('crea_blog');
 
 Route::post('/crea_blog', 'UserController@creaBlog')
         ->name('crea_blog');
+
+Route::get('/blog/{IDBlog}', 'PostController@getPosts')->name('blog');

@@ -15,7 +15,7 @@
             <div class="option">
                 <button class="opt"><a href="{{ route('profile') }}" class="link-opt"><i class="fa fa-user" style="width: 20px; margin-left: 3px;"></i> I tuoi dati</a></button>
 
-                <form method="POST" action="{{route('amici')}}">
+                <form method="GET" action="{{route('amici')}}">
                     @csrf
 
                     <input type="hidden" name="id" value={{Auth::user()->id}}>

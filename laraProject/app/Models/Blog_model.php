@@ -24,5 +24,9 @@ class Blog_model extends Model {
                         ->where('IDUtente', '=', $id)->get();
         return $blogs;
     }
+    
+    public function findBlog($IDBlog){
+        return Blog_model::find($IDBlog);
+    }
 
 }

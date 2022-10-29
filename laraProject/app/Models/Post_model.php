@@ -11,11 +11,17 @@ class Post_model extends Model {
     protected $guarded = ['IDPost'];
     public $timestamps = false;
 
-    public function getPost(int $idUtente, int $idBlog) {
-        $posts = Post_model::where('IDBlog', '=', $idBlog)
-                                ->where('IDUtente', '=', $idUtente)->get();
+    public function getpost(int $IDBlog) {
+        $posts = Post_model::select(['Post.*'])
+                        ->where('IDBlog', '=', $IDBlog)->get();
         return $posts;
     }
+
+//    public function getPost(int $idUtente, int $idBlog) {
+//        $posts = Post_model::where('IDBlog', '=', $idBlog)
+//                                ->where('IDUtente', '=', $idUtente)->get();
+//        return $posts;
+//    }
 
     public function createPost(string $titolo, string $descrizione, string $data, int $idBlog, int $idUtente) {
         Post_model::create([

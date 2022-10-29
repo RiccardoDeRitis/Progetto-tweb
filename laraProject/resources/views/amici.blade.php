@@ -20,7 +20,7 @@
                 @else
                     <h1 class="user_search_data" style="width: 85%; display: inline-block;"> {{$utenti[$amico->IDUtente - 1]->Nome}} {{$utenti[$amico->IDUtente - 1]->Cognome}} </h1>
                     <div class="button_send_request" style="margin-top: 2%; margin-right: 2%;">
-                        <form method="POST" action="{{route('cancella_richiesta')}}">
+                        <form  action="{{route('cancella_richiesta')}}">
                             @csrf
 
                             <input type="hidden" name="id" value={{Auth::user()->id}}>
@@ -31,7 +31,7 @@
                         </form>
                     </div>
                     <div class="button_send_request" style="margin-top: 2%; margin-right: 4%;">
-                        <form method="POST" action="{{route('accetta_richiesta')}}">
+                        <form  action="{{route('accetta_richiesta')}}">
                             @csrf
 
                             <input type="hidden" name="id" value={{Auth::user()->id}}>
