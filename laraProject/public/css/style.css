@@ -759,6 +759,8 @@ body{
 
 .container_blog {
     cursor: pointer;
+    width: 80%; 
+    height: 80%;
     margin-left: 8.5%;
     background-color: white;
     border: 1px solid rgb(218, 218, 218);
@@ -790,4 +792,9 @@ body{
     border-radius: 5px;
     box-shadow: none;
     outline: none;
+}
+
+.td_container {
+    width: 33%; 
+    height: 300px;
 }
