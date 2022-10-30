@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/','controller1@showHome')
-        ->name('home');
+Route::get('/','controller1@showHome')->name('home');
 
 Auth::routes();
 
@@ -36,7 +35,6 @@ Route::get('/miei_blog', 'UserController@showMieiBlog')->name('miei_blog');
 
 Route::view('/crea_blog', 'crea_blog')->name('crea_blog');
 
-Route::post('/crea_blog', 'UserController@creaBlog')
-        ->name('crea_blog');
+Route::post('/crea_blog', 'UserController@creaBlog')->name('crea_blog');
 
 Route::get('/blog/{IDBlog}', 'PostController@getPosts')->name('blog');

@@ -5,9 +5,7 @@
 
 @foreach($posts as $post)
 
-
-
-<h1>{{$post->Descrizione}}</h1>
+    <h1>{{$post->Descrizione}}</h1>
 
 @endforeach
 
