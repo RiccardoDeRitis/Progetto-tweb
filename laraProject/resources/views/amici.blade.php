@@ -20,7 +20,7 @@
                 @else
                     <h1 class="user_search_data" style="width: 85%; display: inline-block;"> {{$utenti[$amico->IDUtente - 1]->Nome}} {{$utenti[$amico->IDUtente - 1]->Cognome}} </h1>
                     <div class="button_send_request" style="margin-top: 2%; margin-right: 2%;">
-                        <form  action="{{route('cancella_richiesta')}}">
+                        <form action="{{route('cancella_richiesta')}}">
                             @csrf
 
                             <input type="hidden" name="id" value={{Auth::user()->id}}>
@@ -31,7 +31,7 @@
                         </form>
                     </div>
                     <div class="button_send_request" style="margin-top: 2%; margin-right: 4%;">
-                        <form  action="{{route('accetta_richiesta')}}">
+                        <form action="{{route('accetta_richiesta')}}">
                             @csrf
 
                             <input type="hidden" name="id" value={{Auth::user()->id}}>
@@ -54,10 +54,11 @@
             <div class="div_amici">
                 @if ($amico->IDUtente == Auth::user()->id)
                     <h1 class="user_search_data" style="width: 85%; display: inline-block;"> {{$utenti[$amico->IDUtenteAmico - 1]->Nome}} {{$utenti[$amico->IDUtenteAmico - 1]->Cognome}} </h1>
+                    <a href="{{route('profileUser', [$amico->IDUtenteAmico])}}"><button class="send_request"><span aria-hidden="true"><i class="fa fa-user"></i></span></button></a>
                 @else
                     <h1 class="user_search_data" style="width: 85%; display: inline-block;"> {{$utenti[$amico->IDUtente - 1]->Nome}} {{$utenti[$amico->IDUtente - 1]->Cognome}} </h1>
+                    <a href="{{route('profileUser', [$amico->IDUtente])}}"><button class="send_request"><span aria-hidden="true"><i class="fa fa-user"></i></span></button></a>
                 @endif
-                <button type="submit" class="send_request"><span aria-hidden="true"><i class="fa fa-user"></i></span></button>
                 <a class="send_request" style="margin-left: 3%; cursor: default;"><span aria-hidden="true"><i class="fa fa-circle-check"></i></span></a>
             </div>
         @endif

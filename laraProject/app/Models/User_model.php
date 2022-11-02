@@ -20,4 +20,9 @@ class User_model extends Model {
         return $users;
     }
 
+    public function getUser(int $id) {
+        $user = User_model::where('id','=',$id)->get();
+        return $user;
+    }
+
 }

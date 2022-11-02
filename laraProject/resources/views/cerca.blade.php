@@ -59,7 +59,11 @@
                         @endif
                     @else
                         <div class="button_send_request">
-                            <a class="send_request" style="cursor: default"><span aria-hidden="true"><i class="fa fa-circle-check"></i></span></a>
+                            @if ($amici[$i]->IDUtente == Auth::user()->id)
+                                <a href="{{route('profileUser', [$amici[$i]->IDUtenteAmico])}}"><button class="send_request"><span aria-hidden="true"><i class="fa fa-user"></i></span></button></a>
+                            @else
+                                <a href="{{route('profileUser', [$amici[$i]->IDUtente])}}"><button class="send_request"><span aria-hidden="true"><i class="fa fa-user"></i></span></button></a>
+                            @endif
                         </div>
                         @break
                     @endif

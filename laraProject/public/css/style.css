@@ -758,6 +758,7 @@ body{
 }
 
 .container_blog {
+    box-shadow: 5px 10px rgba(0, 140, 186, 40%);
     cursor: pointer;
     width: 80%; 
     height: 80%;
@@ -797,4 +798,14 @@ body{
 .td_container {
     width: 33%; 
     height: 300px;
+}
+
+.blog_view {
+    font-size: 80px;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.blog_view:hover {
+    transform: scale(1.1);
 }

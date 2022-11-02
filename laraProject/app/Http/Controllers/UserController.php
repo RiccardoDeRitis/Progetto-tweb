@@ -32,6 +32,14 @@ class UserController extends Controller
         return view('profile');
     }
 
+    public function getProfileUser(int $id) {
+        $user = $this->user_model->getUser($id);
+        $blogs = $this->blog_model->getBlogsByUser($id);
+        return view('profileUser')
+                ->with('user', $user[0])
+                ->with('blogs', $blogs);
+    }
+
     public function search() {
         $search_text = $_GET['search'];
         $user = $this->user_model->getUserSearch($search_text);

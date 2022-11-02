@@ -11,19 +11,21 @@
     @auth
         <div style="background-color: rgb(239, 254, 255); width: 100%; height: 100%;">
             <h1 class="blog_data" style="margin-left: 43.5%; font-size: 36px; font-weight: bold; margin-top: 0;">Most Popular Blog</h1>
-            <table class="table_blog" style="background-color:rgb(239, 254, 255); margin-top: 0%; margin-bottom: 0%; margin-left: 0;">
+            <table class="table_blog" style="background-color:rgb(239, 254, 255); margin-top: 0%; margin-bottom: 0%; margin-left: 0; width: 100%;">
                 <tr>
                     @for ($i = 0;$i < count($blogs); $i++)
-                        <td class="td_container">
+                        <td class="td_container" style="width: 28%">
                             <div class="container_blog"> 
-                                <h1 class="blog_data" style="padding-top: 10%; font-style: italic;"> <b>Titolo :</b> {{$blogs[$i]->Titolo}} </h1> 
-                                <h1 class="blog_data" style="width: 80%; font-style: italic;"> <b>Descrizione :</b> {{$blogs[$i]->Descrizione}} </h1> 
+                                <a href="{{route('blog', [$blogs[$i]->IDBlog])}}" style="text-decoration: none; color: black;">
+                                    <h1 class="blog_data" style="padding-top: 10%; font-style: italic;"> <b>Titolo :</b> {{$blogs[$i]->Titolo}} </h1> 
+                                    <h1 class="blog_data" style="width: 80%; font-style: italic;"> <b>Descrizione :</b> {{$blogs[$i]->Descrizione}} </h1> 
+                                </a>
                             </div>
                         </td>
                     @endfor
-                    <td class="td_container" style="margin-left: 3%;">
+                    <td class="td_container" style="padding-left: 4%;">
                         <a href="{{ route('blogsPage') }}" style="text-decoration: none; color: black;">
-                            <span aria-hidden="true"><i class="fa fa-arrow-right" style="font-size: 80px; padding-top: 16%; cursor: pointer;"></i></span>
+                            <div class="blog_view"><i class="fa fa-arrow-right"></i></div>
                         </a>
                     </td>
                 </tr>
