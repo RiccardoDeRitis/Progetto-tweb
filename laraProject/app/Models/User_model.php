@@ -24,5 +24,9 @@ class User_model extends Model {
         $user = User_model::where('id','=',$id)->get();
         return $user;
     }
+    
+    public function BlogCreator($IDBlog){
+        return User_model::where('id', $IDBlog)->value('Nome');
+    }
 
 }

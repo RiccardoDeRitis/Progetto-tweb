@@ -23,23 +23,32 @@ class PostController extends Controller
     }
 
     public function getPosts(int $IDBlog) {
-        
+        $blogcreator=$this->user_model->BlogCreator($IDBlog);
         $Blog = $this->blog_model->findBlog($IDBlog);
         $posts = $this->post_model->getPost($IDBlog);
-       
+        
+        
         return view('blog')
+               ->with('blogcreator',$blogcreator)
                ->with('blog',$Blog)
                ->with('posts', $posts);
                
+           
+               
     }
 
-    public function createPost() {
-        $titolo = $_GET["Titolo"];
-        $descrizione = $_GET["Descrizione"];
-        $data = $_GET["Data"];
-        $IDBlog = $_GET["idBlog"];
-        $IDUtente = $_GET["idUtente"];
-        $this->post_model->createPost($titolo, $descrizione, $data, $IDBlog, $IDUtente);
+    public function createPost(PostCreateRequest $request,int $IDBlog) {
+        $id = Auth::user()->id;
+   
+        //Crea il post
+        $posts = new Post_model();
+        $posts->Descrizione = $request->Descrizione;
+        $posts->IDUtente = $id;
+        $posts->IDBlog = $IDBlog;
+        $posts->Like = 0;
+        $posts->Data = 0;
+        $posts->save();
+        return back();
     }
     
 }
