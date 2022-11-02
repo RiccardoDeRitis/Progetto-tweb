@@ -25,8 +25,10 @@ class User_model extends Model {
         return $user;
     }
     
-    public function BlogCreator($IDBlog){
-        return User_model::where('id', $IDBlog)->value('Nome');
+    public function BlogCreator(int $IDBlog){
+        return User_model::join('Blog', 'users.id', '=', 'Blog.IDUtente')
+                            ->where('IDBlog', '=', $IDBlog)
+                            ->select('users.Nome', 'users.Cognome')->get();
     }
 
 }

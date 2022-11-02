@@ -809,3 +809,36 @@ body{
 .blog_view:hover {
     transform: scale(1.1);
 }
+
+.textarea_post {
+    margin-top: 20px;
+    resize: none;
+    max-height: 180px;
+    margin-bottom: 20px;
+    height: 500px;
+    border-radius: 5px;
+    width: 35%; 
+    height: 20%; 
+    margin-left: 30%; 
+    font-size: 24px; 
+    border: 1px solid rgb(216, 216, 216); 
+    padding: 50px 30px;
+    border-radius: 50px;
+}
+
+.container_post {
+    cursor: pointer;
+    transition: transform .2s;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    margin-left: 7.5%;
+    width: 85%;
+    height: 30%;
+    border: 1px solid rgb(216, 216, 216);
+    border-radius: 15px;
+    padding: 20px 10px;
+}
+
+.container_post:hover {
+    transform: scale(1.1);
+}

@@ -11,11 +11,8 @@ class Blog_model extends Model {
     protected $guarded = ['IDBlog'];
     public $timestamps = false;
 
-
-
     public function getAllBlogs() {
         $blogs = Blog_model::get();
-        
         return $blogs;
     }
     
@@ -25,7 +22,7 @@ class Blog_model extends Model {
         return $blogs;
     }
     
-    public function findBlog($IDBlog){
+    public function findBlog(int $IDBlog){
         return Blog_model::find($IDBlog);
     }
 
