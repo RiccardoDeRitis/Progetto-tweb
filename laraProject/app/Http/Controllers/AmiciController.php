@@ -30,20 +30,16 @@ class AmiciController extends Controller
     public function accept_request() {
         $id = $_GET['id'];
         $idAmico = $_GET['idAmico'];
-        $Nome = $_GET['Nome'];
-        $Cognome = $_GET['Cognome'];
         $this->amici_model->acceptRequest($id, $idAmico);
-        $this->messaggi_model->messageAccept($idAmico, $Nome, $Cognome);
+        $this->messaggi_model->messageAccept($idAmico, $id);
         return back();
     }
 
     public function delete_request() {
         $id = $_GET['id'];
         $idAmico = $_GET['idAmico'];
-        $Nome = $_GET['Nome'];
-        $Cognome = $_GET['Cognome'];
         $this->amici_model->deleteRequest($id, $idAmico);
-        $this->messaggi_model->messageDelete($idAmico, $Nome, $Cognome);
+        $this->messaggi_model->messageDelete($idAmico, $id);
         return back();
     }
 

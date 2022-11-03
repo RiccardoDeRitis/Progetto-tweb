@@ -25,8 +25,6 @@
 
                             <input type="hidden" name="id" value={{Auth::user()->id}}>
                             <input type="hidden" name="idAmico" value={{$amico->IDUtente}}>
-                            <input type="hidden" name="Nome" value={{Auth::user()->Nome}}>
-                            <input type="hidden" name="Cognome" value={{Auth::user()->Cognome}}>
                             <button type="submit" class="send_request" style="color: red"><span aria-hidden="true"><i class="fa fa-remove"></i></span></button>
                         </form>
                     </div>
@@ -36,8 +34,6 @@
 
                             <input type="hidden" name="id" value={{Auth::user()->id}}>
                             <input type="hidden" name="idAmico" value={{$amico->IDUtente}}>
-                            <input type="hidden" name="Nome" value={{Auth::user()->Nome}}>
-                            <input type="hidden" name="Cognome" value={{Auth::user()->Cognome}}>
                             <button type="submit" class="send_request" style="color: green"><span aria-hidden="true"><i class="fa fa-check"></i></span></button>
                         </form>
                     </div>           

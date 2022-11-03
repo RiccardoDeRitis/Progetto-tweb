@@ -41,5 +41,4 @@ Route::post('/crea_blog', 'UserController@creaBlog')->name('crea_blog');
 
 Route::get('/blog/{IDBlog}', 'PostController@getPosts')->name('blog');
 
-Route::post('/crea_post/{IDBlog}', 'PostController@createPost')
-        ->name('crea_post');
+Route::post('/crea_post/{IDBlog}', 'PostController@createPost')->name('crea_post');

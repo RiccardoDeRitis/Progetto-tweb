@@ -11,20 +11,18 @@ class Messaggi_model extends Model {
     protected $guarded = ['IDMessaggi'];
     public $timestamps = false;
 
-    public function messageAccept(int $id, string $Nome, string $Cognome) {
+    public function messageAccept(int $id, int $IDUtenteRichiesta) {
         Messaggi_model::create([
             'IDUtente' => $id,
-            'NomeUtente' => $Nome,
-            'CognomeUtente' => $Cognome,
+            'IDUtenteRichiesta' => $IDUtenteRichiesta,
             'Richiesta' => 1,
         ]);
     }
 
-    public function messageDelete(int $id, string $Nome, string $Cognome) {
+    public function messageDelete(int $id, int $IDUtenteRichiesta) {
         Messaggi_model::create([
             'IDUtente' => $id,
-            'NomeUtente' => $Nome,
-            'CognomeUtente' => $Cognome,
+            'IDUtenteRichiesta' => $IDUtenteRichiesta,
             'Richiesta' => 0,
         ]);
     }

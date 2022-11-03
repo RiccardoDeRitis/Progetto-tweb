@@ -17,8 +17,7 @@ class CreateMessaggiTable extends Migration
             $table->bigIncrements('IDMessaggi');
             $table->bigInteger('IDUtente')->unsigned()->index();
             $table->foreign('IDUtente')->references('id')->on('users');
-            $table->string('NomeUtente');
-            $table->string('CognomeUtente');
+            $table->bigInteger('IDUtenteRichiesta');
             $table->boolean('Richiesta');
         });
     }

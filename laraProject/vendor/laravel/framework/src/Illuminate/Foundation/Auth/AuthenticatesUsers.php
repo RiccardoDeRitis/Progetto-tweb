@@ -131,10 +131,9 @@ trait AuthenticatesUsers
      * @throws \Illuminate\Validation\ValidationException
      */
     protected function sendFailedLoginResponse(Request $request)
-    {
-        throw ValidationException::withMessages([
-            $this->username() => [trans('auth.failed')],
-        ]);
+    {   
+        return view('home')
+                ->with('errore', 'errore');
     }
 
     /**

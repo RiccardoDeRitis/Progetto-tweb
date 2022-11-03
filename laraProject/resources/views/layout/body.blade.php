@@ -17,6 +17,13 @@
         @include('auth.register')
         @include('auth.login')
         <!-- body -->
+        @if (isset($errore))
+            <script>
+                $('.popup').addClass('active');
+                $('.container').addClass('blur');
+                $('.errorLogin2').show();
+            </script>
+        @endif
         @yield('content')
         <!-- footer -->
         @include('layout.footer')

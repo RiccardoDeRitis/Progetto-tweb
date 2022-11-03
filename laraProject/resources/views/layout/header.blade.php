@@ -23,7 +23,6 @@
                 </form>
                 
                 <button class="opt"><a href="{{ route('miei_blog') }}" class="link-opt"><i class="fa fa-blog" style="width: 20px; margin-left: 3px;"></i> I tuoi blog</a></button>
-<!--                <button class="opt"><a href="{{ route('miei_blog') }}" class="fa fa-blog" style="width: 20px; margin-left: 3px;"></i> I tuoi blog</a></button>-->
 
                 <form method="POST" action="{{route('messaggi')}}">
                     @csrf

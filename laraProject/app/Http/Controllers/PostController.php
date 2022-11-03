@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post_model;
 use App\Models\User_model;
 use App\Models\Blog_model;
+use App\Models\Amici_model;
 use App\Http\Requests\PostCreateRequest;
 use Auth;
 use DateTimeImmutable;
@@ -14,6 +15,7 @@ class PostController extends Controller
     protected $post_model;
     protected $user_model;
     protected $blog_model;
+    protected $amici_model;
     
     public function __construct()
     {
@@ -21,15 +23,18 @@ class PostController extends Controller
         $this->post_model = new Post_model;
         $this->user_model = new User_model;
         $this->blog_model = new Blog_model;
+        $this->amici_model = new Amici_model;
     }
 
     public function getPosts(int $IDBlog) {
         $blogcreator=$this->user_model->BlogCreator($IDBlog);
+        $friends = $this->amici_model->getAllFriends();
         $users = $this->user_model->getUsers();
         $Blog = $this->blog_model->findBlog($IDBlog);
         $posts = $this->post_model->getPost($IDBlog);    
         return view('blog')
                ->with('blogcreator',$blogcreator[0])
+               ->with('amici', $friends)
                ->with('utenti', $users)
                ->with('blog',$Blog)
                ->with('posts', $posts);     

@@ -8,13 +8,22 @@
 
 @foreach($messaggi as $messaggio)
 
-    <div class="container_user">
-        @if($messaggio->Richiesta == 0)
-            <h1 class="user_search_data" style="width: 90%"> L'utente {{$messaggio->NomeUtente}} {{$messaggio->CognomeUtente}} ha rifiutato la tua richiesta di amicizia </h1>
-        @else
-            <h1 class="user_search_data" style="width: 90%"> L'utente {{$messaggio->NomeUtente}} {{$messaggio->CognomeUtente}} ha accettato la tua richiesta di amicizia </h1>
+    @foreach($utenti as $utente)
+
+        @if ($messaggio->IDUtenteRichiesta == $utente->id)
+
+            <div class="container_user">
+                @if($messaggio->Richiesta == 0)
+                    <h1 class="user_search_data" style="width: 90%"> L'utente {{$utente->Nome}} {{$utente->Cognome}} ha rifiutato la tua richiesta di amicizia </h1>
+                @else
+                    <h1 class="user_search_data" style="width: 90%"> L'utente {{$utente->Nome}} {{$utente->Cognome}} ha accettato la tua richiesta di amicizia </h1>
+                @endif
+            </div>
+
+            @break
         @endif
-    </div>
+
+    @endforeach
 
 @endforeach
 
