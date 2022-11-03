@@ -12,9 +12,11 @@ class User_model extends Model {
 
     public function getUserSearch(string $search) {
         if (str_contains($search, "*")) {
-            $users = User_model::where('Nome', 'LIKE', str_replace('*','',$search).'%')->get();
+            $users = User_model::where('Nome', 'LIKE', str_replace('*','',$search).'%')
+                                    ->where('Visibilità', '=', 's')->get();
         } else {
-            $users = User_model::where('Nome','=', $search)->get();
+            $users = User_model::where('Nome','=', $search)
+                                    ->where('Visibilità', '=', 's')->get();
         }
         return $users;
     }

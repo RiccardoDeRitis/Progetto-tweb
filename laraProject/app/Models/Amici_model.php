@@ -43,4 +43,13 @@ class Amici_model extends Model {
                         ->delete();
     }
 
+    public function deleteFriend(int $id1, int $id2) {
+        Amici_model::where([
+                            ['IDUtente', '=', $id1],
+                            ['IDUtenteAmico', '=', $id2]])
+                    ->orWhere([
+                            ['IDUtente', '=', $id2],
+                            ['IDUtenteAmico', '=', $id1]])->delete();
+    }
+
 }

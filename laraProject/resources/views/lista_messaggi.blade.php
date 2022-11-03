@@ -15,8 +15,12 @@
             <div class="container_user">
                 @if($messaggio->Richiesta == 0)
                     <h1 class="user_search_data" style="width: 90%"> L'utente {{$utente->Nome}} {{$utente->Cognome}} ha rifiutato la tua richiesta di amicizia </h1>
-                @else
+                @endif
+                @if($messaggio->Richiesta == 1)
                     <h1 class="user_search_data" style="width: 90%"> L'utente {{$utente->Nome}} {{$utente->Cognome}} ha accettato la tua richiesta di amicizia </h1>
+                @endif
+                @if($messaggio->Richiesta == 2)
+                    <h1 class="user_search_data" style="width: 90%"> L'utente {{$utente->Nome}} {{$utente->Cognome}} ti ha rimosso dagli amici </h1>
                 @endif
             </div>
 

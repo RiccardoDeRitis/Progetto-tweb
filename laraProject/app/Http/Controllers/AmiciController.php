@@ -51,5 +51,11 @@ class AmiciController extends Controller
                     ->with('amici', $friends)
                     ->with('utenti', $users);
     }
+
+    public function deleteFriend(int $id1, int $id2) {
+        $this->amici_model->deleteFriend($id1, $id2);
+        $this->messaggi_model->messageDeleteFriend($id1, $id2);
+        return back();
+    }
     
 }

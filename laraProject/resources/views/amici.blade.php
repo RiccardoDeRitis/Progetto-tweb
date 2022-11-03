@@ -49,11 +49,13 @@
         @if ($amico->Amicizia == 1)
             <div class="div_amici">
                 @if ($amico->IDUtente == Auth::user()->id)
-                    <h1 class="user_search_data" style="width: 85%; display: inline-block;"> {{$utenti[$amico->IDUtenteAmico - 1]->Nome}} {{$utenti[$amico->IDUtenteAmico - 1]->Cognome}} </h1>
+                    <h1 class="user_search_data" style="width: 80%; display: inline-block;"> {{$utenti[$amico->IDUtenteAmico - 1]->Nome}} {{$utenti[$amico->IDUtenteAmico - 1]->Cognome}} </h1>
                     <a href="{{route('profileUser', [$amico->IDUtenteAmico])}}"><button class="send_request"><span aria-hidden="true"><i class="fa fa-user"></i></span></button></a>
+                    <a href="{{route('elimina_amico', [$amico->IDUtenteAmico, Auth::user()->id])}}"><button class="send_request"><span aria-hidden="true"><i class="fa fa-remove"></i></span></button></a>
                 @else
-                    <h1 class="user_search_data" style="width: 85%; display: inline-block;"> {{$utenti[$amico->IDUtente - 1]->Nome}} {{$utenti[$amico->IDUtente - 1]->Cognome}} </h1>
+                    <h1 class="user_search_data" style="width: 80%; display: inline-block;"> {{$utenti[$amico->IDUtente - 1]->Nome}} {{$utenti[$amico->IDUtente - 1]->Cognome}} </h1>
                     <a href="{{route('profileUser', [$amico->IDUtente])}}"><button class="send_request"><span aria-hidden="true"><i class="fa fa-user"></i></span></button></a>
+                    <a href="{{route('elimina_amico', [$amico->IDUtente, Auth::user()->id])}}"><button class="send_request"><span aria-hidden="true"><i class="fa fa-remove"></i></span></button></a>
                 @endif
                 <a class="send_request" style="margin-left: 3%; cursor: default;"><span aria-hidden="true"><i class="fa fa-circle-check"></i></span></a>
             </div>

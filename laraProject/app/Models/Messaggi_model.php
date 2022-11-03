@@ -27,6 +27,14 @@ class Messaggi_model extends Model {
         ]);
     }
 
+    public function messageDeleteFriend(int $id1, int $id2) {
+        Messaggi_model::create([
+            'IDUtente' => $id1,
+            'IDUtenteRichiesta' => $id2,
+            'Richiesta' => 2,
+        ]);
+    }
+
     public function getAllMessage(int $id) {
         $messaggi = Messaggi_model::where('IDUtente', '=', $id)->get();
         return $messaggi;
