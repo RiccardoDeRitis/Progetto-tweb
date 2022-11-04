@@ -4,7 +4,8 @@
             <ul class="card">
                 <h3 class="azienda-h3"> La nostra azienda </h3>
                 <h4 class="group-h4"> e-Friend Group </h4>
-                <p> Indirizzo: Via Roma 55, Chieti (CH) </p>
+                <a href="{{route('chi_siamo')}}" class="links"><h4 class="group-h4" style="width: fit-content;">Chi siamo?</h4></a>
+                <p> Indirizzo: Via Roma 55, Ancona (AN) </p>
                 <p> P.Iva: 1234567890 </p>
             </ul>
             <ul class="card">

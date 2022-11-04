@@ -15,6 +15,8 @@ Route::get('/','controller1@showHome')->name('home');
 
 Auth::routes();
 
+Route::get('/chi_siamo','controller1@showChiSiamo')->name('chi_siamo');
+
 Route::get('/profile', 'UserController@showProfile')->name('profile');
 
 Route::get('/cerca', 'UserController@search')->name('cerca');

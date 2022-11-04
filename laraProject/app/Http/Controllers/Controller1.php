@@ -25,4 +25,8 @@ class Controller1 extends BaseController
                 ->with('blogs', $blogs);
     }
 
+    public function showChiSiamo() {
+        return view('chi_siamo');
+    }
+
 }

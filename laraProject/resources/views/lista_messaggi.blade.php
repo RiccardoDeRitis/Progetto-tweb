@@ -6,29 +6,33 @@
 <h1 class="title_profile"> I tuoi messaggi </h1>
 <hr size="3" align="center" width="90%" color="#008CBA" noshade>
 
-@foreach($messaggi as $messaggio)
+@if (count($messaggi) == 0)
+    <p class="title_profile"> Nessun messaggio </p>
+@else
+    @for($i = count($messaggi) - 1; $i >= 0; $i--)
 
-    @foreach($utenti as $utente)
+        @foreach($utenti as $utente)
 
-        @if ($messaggio->IDUtenteRichiesta == $utente->id)
+            @if ($messaggi[$i]->IDUtenteRichiesta == $utente->id)
 
-            <div class="container_user">
-                @if($messaggio->Richiesta == 0)
-                    <h1 class="user_search_data" style="width: 90%"> L'utente {{$utente->Nome}} {{$utente->Cognome}} ha rifiutato la tua richiesta di amicizia </h1>
-                @endif
-                @if($messaggio->Richiesta == 1)
-                    <h1 class="user_search_data" style="width: 90%"> L'utente {{$utente->Nome}} {{$utente->Cognome}} ha accettato la tua richiesta di amicizia </h1>
-                @endif
-                @if($messaggio->Richiesta == 2)
-                    <h1 class="user_search_data" style="width: 90%"> L'utente {{$utente->Nome}} {{$utente->Cognome}} ti ha rimosso dagli amici </h1>
-                @endif
-            </div>
+                <div class="container_user">
+                    @if($messaggi[$i]->Richiesta == 0)
+                        <h1 class="user_search_data" style="width: 90%"> L'utente {{$utente->Nome}} {{$utente->Cognome}} ha rifiutato la tua richiesta di amicizia </h1>
+                    @endif
+                    @if($messaggi[$i]->Richiesta == 1)
+                        <h1 class="user_search_data" style="width: 90%"> L'utente {{$utente->Nome}} {{$utente->Cognome}} ha accettato la tua richiesta di amicizia </h1>
+                    @endif
+                    @if($messaggi[$i]->Richiesta == 2)
+                        <h1 class="user_search_data" style="width: 90%"> L'utente {{$utente->Nome}} {{$utente->Cognome}} ti ha rimosso dagli amici </h1>
+                    @endif
+                </div>
 
-            @break
-        @endif
+                @break
+            @endif
 
-    @endforeach
+        @endforeach
 
-@endforeach
+    @endfor
+@endif
 
 @endsection
