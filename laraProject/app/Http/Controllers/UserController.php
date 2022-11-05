@@ -6,6 +6,7 @@ use App\Models\Amici_model;
 use App\Models\User_model;
 use App\Models\Blog_model;
 use App\Http\Requests\BlogCreateRequest;
+use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Post_model;
 use auth;
 
@@ -39,6 +40,68 @@ class UserController extends Controller
                 ->with('user', $user[0])
                 ->with('numAmici', $numAmici)
                 ->with('blogs', $blogs);
+    }
+    
+    public function showUserMod() {
+    
+        return view('modifica_profilo');
+    }
+    
+    public function modificaProfilo(UpdateProfileRequest $request) {
+        $utente = Auth::user();
+
+        if($request->Nome != null){
+            $utente->update([
+                'Nome' => $request->Nome, 
+                ]);
+        }
+        if($request->Cognome != null){
+            $utente->update([
+                'Cognome' => $request->Cognome, 
+                ]);
+        }
+            if($request->Telefono != null){
+            $utente->update([
+                'Telefono' => $request->Telefono, 
+                ]);
+        }
+            if($request->Città != null){
+            $utente->update([
+                'Città' => $request->Città, 
+                ]);
+        }
+            if($request->Indirizzo != null){
+            $utente->update([
+                'Indirizzo' => $request->Indirizzo, 
+                ]);
+        }
+            if($request->Anni != null){
+            $utente->update([
+                'Anni' => $request->Anni, 
+                ]);
+        }
+            if($request->Codice_Fiscale != null){
+            $utente->update([
+                'Codice_Fiscale' => $request->Codice_Fiscale, 
+                ]);
+        }
+            if($request->Visibilità != null){
+            $utente->update([
+                'Visibilità' => $request->Visibilità, 
+                ]);
+        }
+            if($request->Descrizione != null){
+            $utente->update([
+                'Descrizione' => $request->Descrizione, 
+                ]);
+        }
+        if ($request->password != null) {
+            $utente->update([
+                'password' => Hash::make($request->password),
+            ]);
+        }
+                
+          return redirect(route('profile'));
     }
 
     public function search() {

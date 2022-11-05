@@ -12,7 +12,7 @@
                 <button class="user-option" style="display: inline-block; float: right;"><i class="fa fa-user"></i> ▼</button>
                 <div class="option">
                     <button class="opt"><a href="{{ route('profile') }}" class="link-opt"><i class="fa fa-user" style="width: 20px; margin-left: 3px;"></i> I tuoi dati</a></button>
-
+                    @can('isUser')
                     <form method="GET" action="{{route('amici')}}">
                         @csrf
 
@@ -28,6 +28,14 @@
                         <input type="hidden" name="id" value={{Auth::user()->id}}>
                         <button type="submit" class="opt"><i class="fa fa-message" style="width: 20px; margin-left: 3px;"></i> Ultimi messaggi</button>
                     </form>
+                    @endcan
+                    @can('isStaff')
+    
+                    @endcan
+                    @can('isAdmin')
+
+                    @endcan
+    
                 </div>
             </div>
             <div class="form_search">

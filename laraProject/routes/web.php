@@ -19,6 +19,10 @@ Route::get('/chi_siamo','controller1@showChiSiamo')->name('chi_siamo');
 
 Route::get('/profile', 'UserController@showProfile')->name('profile');
 
+Route::get('/profile/modifica_profilo', 'UserController@showUserMod')->name('mostra_modifica_profilo');
+        
+Route::post('/profile/modifica', 'UserController@modificaProfilo')->name('modifica_profilo');
+
 Route::get('/cerca', 'UserController@search')->name('cerca');
 
 Route::post('/richiesta', 'AmiciController@request')->name('richiesta');

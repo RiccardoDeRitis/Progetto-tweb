@@ -5,6 +5,7 @@
 <div class="profile">
     <h1 class="title_profile"> I tuoi dati </h1>
     <hr size="3" align="center" width="90%" color="#008CBA" noshade>
+    <button class="mod"><a href="{{route('mostra_modifica_profilo')}}" class="link-opt"> Modifica Dati</a></button>
     <div class="user_profile1">
         <div class="user_data">
             <p class="user_camp1"  style="display: inline-block"> Nome </h1>
