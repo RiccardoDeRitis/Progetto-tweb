@@ -1,13 +1,14 @@
 .logo{
+    margin-left: 2%;
     width: 10%;
-    height: 5%;
-    margin: 0;
 }
 
 .form_search{
-    width: 20%;
-    margin-left: 23%;
+    width: 25%;
+    float: right;
+    margin-right: 5%;
     margin-top: 1%;
+    display: inline-block;
 }
 
 .sign-in{
@@ -16,8 +17,7 @@
     text-align: center;
     font-size: 16px;
     font-weight: bold;
-    margin-top: 1%;
-    margin-left: 70%;
+    margin-left: 50%;
     transition-duration: 0.4s;
     cursor: pointer;
     background-color: white;
@@ -37,7 +37,6 @@
     text-align: center;
     font-size: 16px;
     font-weight: bold;
-    margin-top: 1%;
     margin-left: 2%;
     margin-right: 2%;
     transition-duration: 0.4s;
@@ -54,24 +53,18 @@
 }   
 
 .header{
-    margin-left: 20px;
-    margin-right: 20px;
-    height: 10%;
     width: 100%;
-    display: inline-flex;
+    height: 10%;
 }
 
 .search{
     border-radius: 50px;
-    height: fit-content;
     width: 100%;
     padding: 10px 50px;
     font-size: 16px;
-    margin-top: 0.5%;
     border: 1px solid white;
     background-color: whitesmoke;
     background-position: 10px 10px;
-    background-repeat: no-repeat;
 }
 
 .search:hover{
@@ -319,7 +312,7 @@ body{
 
 .container {
     position: relative;
-    left: 0;
+    width: 100%;
     margin: 0;
 }
 
@@ -546,7 +539,7 @@ body{
     font-size: 16px;
     font-weight: bold;
     margin-top: 1%;
-    margin-left: 3%;
+    margin-left: 5%;
     transition-duration: 0.4s;
     cursor: pointer;
     background-color: white;

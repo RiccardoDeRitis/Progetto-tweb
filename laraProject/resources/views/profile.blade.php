@@ -34,7 +34,11 @@
         </div>
         <div class="user_data">
             <p class="user_camp2" style="display: inline-block"> Visibilità </p>
-            <p class="user_data1" style="display: inline-block"> {{ Auth::user()->Visibilità}} </p>
+            @if (Auth::user()->Visibilità == 's')
+                <p class="user_data1" style="display: inline-block"> Tutti </p>
+            @else
+                <p class="user_data1" style="display: inline-block"> Solo amici </p>
+            @endif
         </div>
         <div class="user_data">
             <p class="user_camp1" style="display: inline-block"> Anni </p>
@@ -47,11 +51,11 @@
     </div>
     <div class="user_data" style="margin-left: 13%">
         <p class="user_desc" style="display: inline-block"> N° di amici </p>
-        <p class="user_data1" style="display: inline-block"> {{Auth::user()->Telefono}} </p>
+        <p class="user_data1" style="display: inline-block"> {{$numAmici}} </p>
     </div>
     <div class="user_data" style="margin-left: 13%;">
         <p class="user_desc" style="display: inline-block; width: 11%;"> N° di blog creati </p>
-        <p class="user_data1" style="display: inline-block; margin-left: 3%"> {{Auth::user()->Telefono}} </p>
+        <p class="user_data1" style="display: inline-block; margin-left: 3%"> {{$numBlog}} </p>
     </div>
 </div>
 @endsection

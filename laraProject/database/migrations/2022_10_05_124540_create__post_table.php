@@ -17,9 +17,8 @@ class CreatePostTable extends Migration
             $table->bigIncrements('IDPost');
             $table->string('Descrizione');
             $table->string('Data');
-            $table->integer('Like');
             $table->bigInteger('IDBlog')->unsigned()->index();
-            $table->foreign('IDBlog')->references('IDBlog')->on('Blog');
+            $table->foreign('IDBlog')->references('IDBlog')->on('Blog')->onDelete('cascade');
             $table->bigInteger('IDUtente')->unsigned()->index();
             $table->foreign('IDUtente')->references('id')->on('users');
         });

@@ -47,11 +47,9 @@ class AmiciController extends Controller
         $id = $_GET['id'];
         $friends = $this->amici_model->getFriends($id);
         $numFriends = $this->amici_model->getNumFriends($id);
-        $numRequest = $this->amici_model->getNumRequest($id);
         $users = $this->user_model->getUsers();
         return view('amici')
                     ->with('numAmici', $numFriends)
-                    ->with('numRichieste', $numRequest)
                     ->with('amici', $friends)
                     ->with('utenti', $users);
     }

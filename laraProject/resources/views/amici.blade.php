@@ -5,7 +5,6 @@
 
 <div style="display: inline-block; width: 40%; margin-left: 3%;">
     <h1 class="title_profile" style="display: inline-block;"> Richieste di amicizia </h1>
-    <h1 class="title_profile" style="float: right; display: inline-block;"> {{$numRichieste}} </h1>
 </div>
 <div style="display: inline-block; width: 40%; margin-left: 9.6%;">
     <h1 class="title_profile" style="display: inline-block;"> I tuoi amici </h1>

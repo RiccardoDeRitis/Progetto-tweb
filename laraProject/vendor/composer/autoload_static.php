@@ -418,6 +418,7 @@ class ComposerStaticInit29ececc2d3b85773e51c80005a169c6c
         'App\\Http\\Controllers\\Controller1' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller1.php',
         'App\\Http\\Controllers\\Controller2' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller2.php',
         'App\\Http\\Controllers\\MessaggiController' => __DIR__ . '/../..' . '/app/Http/Controllers/MessaggiController.php',
+        'App\\Http\\Controllers\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -427,8 +428,12 @@ class ComposerStaticInit29ececc2d3b85773e51c80005a169c6c
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\BlogCreateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/BlogCreateRequest.php',
+        'App\\Http\\Requests\\PostCreateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PostCreateRequest.php',
         'App\\Models\\Amici_model' => __DIR__ . '/../..' . '/app/Models/Amici_model.php',
+        'App\\Models\\Blog_model' => __DIR__ . '/../..' . '/app/Models/Blog_model.php',
         'App\\Models\\Messaggi_model' => __DIR__ . '/../..' . '/app/Models/Messaggi_model.php',
+        'App\\Models\\Post_model' => __DIR__ . '/../..' . '/app/Models/Post_model.php',
         'App\\Models\\User_model' => __DIR__ . '/../..' . '/app/Models/User_model.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -4587,7 +4592,6 @@ class ComposerStaticInit29ececc2d3b85773e51c80005a169c6c
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
-        'utenti' => __DIR__ . '/../..' . '/database/seeds/utenti.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

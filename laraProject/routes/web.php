@@ -46,3 +46,5 @@ Route::get('/blog/{IDBlog}', 'PostController@getPosts')->name('blog');
 Route::post('/crea_post/{IDBlog}', 'PostController@createPost')->name('crea_post');
 
 Route::get('/elimina_amico/{id1}/{id2}', 'AmiciController@deleteFriend')->name('elimina_amico');
+
+Route::get('/elimina_mioblog/{id}', 'UserController@elimina_mioblog')->name('elimina_mioblog');

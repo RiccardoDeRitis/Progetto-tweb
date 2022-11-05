@@ -34,14 +34,6 @@ class Amici_model extends Model {
         return $numFriends;
     }
 
-    public function getNumRequest(int $id) {
-        $numRequest = Amici_model::where('IDUtente', '=', $id)
-                                    ->orWhere('IDUtenteAmico', '=', $id)
-                                    ->where('Amicizia', '=', '0')
-                                    ->count();
-        return $numRequest;
-    }
-
     public function getAllFriends() {
         $friends = Amici_model::get();
         return $friends;

@@ -3,40 +3,41 @@
 namespace App\Http\Controllers;
 
 use App\Models\Amici_model;
-use Illuminate\Http\Request;
 use App\Models\User_model;
 use App\Models\Blog_model;
 use App\Http\Requests\BlogCreateRequest;
+use App\Models\Post_model;
 use auth;
 
 class UserController extends Controller
 {
     protected $user_model;
     protected $amici_model;
-     protected $blog_model;
+    protected $blog_model;
     
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth');
         $this->user_model = new User_model;
         $this->amici_model = new Amici_model;
         $this->blog_model = new Blog_model;
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function showProfile() {
-        return view('profile');
+        $id = Auth::user()->id;
+        $numAmici = $this->amici_model->getNumFriends($id);
+        $numBlog = $this->blog_model->getNumBlog($id);
+        return view('profile')
+                ->with('numAmici', $numAmici)
+                ->with('numBlog', $numBlog);
     }
 
     public function getProfileUser(int $id) {
         $user = $this->user_model->getUser($id);
+        $numAmici = $this->amici_model->getNumFriends($id);
         $blogs = $this->blog_model->getBlogsByUser($id);
         return view('profileUser')
                 ->with('user', $user[0])
+                ->with('numAmici', $numAmici)
                 ->with('blogs', $blogs);
     }
 
@@ -50,7 +51,6 @@ class UserController extends Controller
     }
     
     public function getBlogs() {
-        
         $blogs = $this->blog_model->getAllBlogs();
         return view('blogsPage')
                ->with('blogs', $blogs);
@@ -74,6 +74,11 @@ class UserController extends Controller
         $blogs->IDUtente = $id;
         $blogs->save();
 
+        return redirect('miei_blog');
+    }
+
+    public function elimina_mioblog(int $id) {
+        $this->blog_model->deleteMioBlog($id);
         return redirect('miei_blog');
     }
     

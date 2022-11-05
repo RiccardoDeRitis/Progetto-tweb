@@ -26,4 +26,13 @@ class Blog_model extends Model {
         return Blog_model::find($IDBlog);
     }
 
+    public function deleteMioBlog(int $id) {
+        Blog_model::join('Post', 'Blog.IDBlog', '=', 'Post.IDBlog')
+                        ->where('Blog.IDBlog', '=', $id)->delete();
+    }
+
+    public function getNumBlog(int $id) {
+        return Blog_model::where('IDUtente', '=', $id)->count();
+    }
+
 }

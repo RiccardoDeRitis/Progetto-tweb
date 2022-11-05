@@ -3,7 +3,12 @@
 
 @section('content')
 
-<h1 class="title_profile" style="display: inline-block;"> Creatore  {{$blogcreator["Nome"]}} {{$blogcreator["Cognome"]}}  </h1>
+<div style="display: inline-block; width: 90%; height: 5%; margin-left: 0.5%;">
+    <h1 class="title_profile" style="display: inline-block;"> Creatore  {{$blogcreator["Nome"]}} {{$blogcreator["Cognome"]}}  </h1>
+    @if (Auth::user()->id == $blog->IDUtente)
+        <a href="{{route('elimina_mioblog', [$blog->IDBlog])}}" class="send_request" style="float: right; color:black; font-size: 24px; margin-top: 2%;"><span aria-hidden="true"><i class="fa fa-trash"></i></span></a>
+    @endif
+</div>
 <hr size="3" align="center" width="90%" color="#008CBA" noshade>
 
 <h1 class="title_profile" style="margin-left: 5%; width: 90%; height: fit-content; font-size: 50px; font-weight: 400;"> {{$blog->Titolo}} </h1>
@@ -27,9 +32,10 @@
                 <i class="fa fa-user" style="font-size: 20px; display: inline-block; margin-left: 1%;"></i>
                 <h1 class="title_profile" style="font-size: 28px; margin-top:0; margin-left: 3%; display: inline-block;"> {{$user->Nome}} {{$user->Cognome}}</h1>
                 <h1 class="title_profile" style="font-size: 22px; margin-top:0; float: right; margin-right: 2%; display: inline-block;"> {{$post->Data}} </h1>
+                @break
             @endif 
         @endforeach
-        <h1 class="title_profile" style="font-size: 28px; margin-right: 1%;">{{$post->Descrizione}}</h1>
+        <h1 class="title_profile" style="display: inline-block; font-size: 28px; width: 85%;">{{$post->Descrizione}}</h1>
     </div>
 
 @endforeach
