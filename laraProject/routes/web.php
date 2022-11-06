@@ -52,3 +52,17 @@ Route::post('/crea_post/{IDBlog}', 'PostController@createPost')->name('crea_post
 Route::get('/elimina_amico/{id1}/{id2}', 'AmiciController@deleteFriend')->name('elimina_amico');
 
 Route::get('/elimina_mioblog/{id}', 'UserController@elimina_mioblog')->name('elimina_mioblog');
+
+Route::get('/tutti_blog', 'UserController@getBlogs')->name('tutti_blog');
+
+Route::get('/utenti_iscritti', 'UserController@getAllUsers')->name('utenti_iscritti');
+
+Route::get('/membri_staff', 'UserController@getAllStaff')->name('membri_staff');
+
+Route::get('/rimuovi_staff/{id}', 'UserController@elimina_staff')->name('rimuovi_staff');
+
+Route::get('/aggiungi_staff', 'UserController@aggiungi_staff')->name('aggiungi_staff');
+
+Route::view('/aggiungi_staff', 'aggiungi_staff')->name('aggiungi_staff');
+
+Route::view('/aggiungi_staff', 'UserController@addStaff')->name('aggiungi_staff');

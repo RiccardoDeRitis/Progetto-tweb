@@ -55,7 +55,7 @@
             </td>
             <td class="td_container">
                 <div class="container_blog"> 
-                    <a href="{{route('blog', [$blogs[0]->IDBlog])}}" style="text-decoration: none; color: black; padding-top: 16%;">
+                    <a href="{{route('blog', [$blogs[1]->IDBlog])}}" style="text-decoration: none; color: black; padding-top: 16%;">
                         <h1 class="blog_data" style="padding-top: 10%; font-style: italic;"> <b>Titolo :</b> {{$blogs[1]->Titolo}} </h1> 
                         <h1 class="blog_data" style="width: 80%; font-style: italic;"> <b>Descrizione :</b> {{$blogs[1]->Descrizione}} </h1> 
                     </a>

@@ -41,9 +41,20 @@ class UserController extends Controller
                 ->with('numAmici', $numAmici)
                 ->with('blogs', $blogs);
     }
+
+    public function getAllUsers() {
+        $users = $this->user_model->getAllUsers();
+        return view('utenti_iscritti')
+                ->with('utenti', $users);
+    }
+
+    public function getAllStaff() {
+        $users = $this->user_model->getAllStaff();
+        return view('membri_staff')
+                ->with('utenti', $users);
+    }
     
     public function showUserMod() {
-    
         return view('modifica_profilo');
     }
     
@@ -138,6 +149,10 @@ class UserController extends Controller
         $blogs->save();
 
         return redirect('miei_blog');
+    }
+
+    public function addStaff() {
+        
     }
 
     public function elimina_mioblog(int $id) {

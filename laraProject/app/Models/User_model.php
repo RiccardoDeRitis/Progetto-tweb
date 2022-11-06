@@ -21,9 +21,14 @@ class User_model extends Model {
         return $users;
     }
 
-    public function getUsers() {
-        $users = User_model::get();
+    public function getAllUsers() {
+        $users = User_model::where('livello', '=', 'utente')->get();
         return $users;
+    }
+
+    public function getAllStaff() {
+        $user = User_model::where('livello','=','staff')->get();
+        return $user;
     }
 
     public function getUser(int $id) {

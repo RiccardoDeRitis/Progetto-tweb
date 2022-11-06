@@ -8,6 +8,12 @@
     @if (Auth::user()->id == $blog->IDUtente)
         <a href="{{route('elimina_mioblog', [$blog->IDBlog])}}" class="send_request" style="float: right; color:black; font-size: 24px; margin-top: 2%;"><span aria-hidden="true"><i class="fa fa-trash"></i></span></a>
     @endif
+    @can('isStaff')
+        <a href="{{route('elimina_mioblog', [$blog->IDBlog])}}" class="send_request" style="float: right; color:black; font-size: 24px; margin-top: 2%;"><span aria-hidden="true"><i class="fa fa-trash"></i></span></a>
+    @endcan
+    @can('isAdmin')
+        <a href="{{route('elimina_mioblog', [$blog->IDBlog])}}" class="send_request" style="float: right; color:black; font-size: 24px; margin-top: 2%;"><span aria-hidden="true"><i class="fa fa-trash"></i></span></a>
+    @endcan
 </div>
 <hr size="3" align="center" width="90%" color="#008CBA" noshade>
 
@@ -36,6 +42,7 @@
             @endif 
         @endforeach
         <h1 class="title_profile" style="display: inline-block; font-size: 28px; width: 85%;">{{$post->Descrizione}}</h1>
+        
     </div>
 
 @endforeach
