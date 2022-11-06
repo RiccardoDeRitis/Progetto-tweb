@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User_model;
 use App\Models\Amici_model;
 use App\Models\Messaggi_model;
@@ -47,7 +46,7 @@ class AmiciController extends Controller
         $id = $_GET['id'];
         $friends = $this->amici_model->getFriends($id);
         $numFriends = $this->amici_model->getNumFriends($id);
-        $users = $this->user_model->getUsers();
+        $users = $this->user_model->getAllUsers();
         return view('amici')
                     ->with('numAmici', $numFriends)
                     ->with('amici', $friends)

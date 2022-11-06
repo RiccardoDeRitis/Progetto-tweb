@@ -29,6 +29,9 @@
 
                 @break
             @endif
+            @if($messaggi[$i]->Rchiesta == 3)
+                <h1 class="user_search_data" style="width: 90%"> Il tuo post viola i nostri standard della community, pertanto è stato eliminato </h1>
+            @endif
 
         @endforeach
 

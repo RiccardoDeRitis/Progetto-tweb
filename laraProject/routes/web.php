@@ -61,8 +61,8 @@ Route::get('/membri_staff', 'UserController@getAllStaff')->name('membri_staff');
 
 Route::get('/rimuovi_staff/{id}', 'UserController@elimina_staff')->name('rimuovi_staff');
 
-Route::get('/aggiungi_staff', 'UserController@aggiungi_staff')->name('aggiungi_staff');
+Route::view('/aggiungi_staff_view', 'aggiungi_staff_view')->name('aggiungi_staff_view');
 
-Route::view('/aggiungi_staff', 'aggiungi_staff')->name('aggiungi_staff');
+Route::post('/aggiungi_staff', 'UserController@addStaff')->name('aggiungi_staff');
 
-Route::view('/aggiungi_staff', 'UserController@addStaff')->name('aggiungi_staff');
+Route::get('/cancella_post/{idPost}/{id}', 'PostController@deletePost')->name('cancella_post');

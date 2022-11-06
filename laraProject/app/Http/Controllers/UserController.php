@@ -7,7 +7,7 @@ use App\Models\User_model;
 use App\Models\Blog_model;
 use App\Http\Requests\BlogCreateRequest;
 use App\Http\Requests\UpdateProfileRequest;
-use App\Models\Post_model;
+use App\Http\Requests\StaffRequest;
 use auth;
 
 class UserController extends Controller
@@ -151,8 +151,24 @@ class UserController extends Controller
         return redirect('miei_blog');
     }
 
-    public function addStaff() {
-        
+    public function addStaff(StaffRequest $request) {
+
+        $user_staff = new User_model();
+        $user_staff->Nome = $request->Nome;
+        $user_staff->Cognome = $request->Cognome;
+        $user_staff->Telefono = $request->Telefono;
+        $user_staff->Città = $request->Città;
+        $user_staff->Indirizzo = $request->Indirizzo;
+        $user_staff->Anni = $request->Anni;
+        $user_staff->Codice_Fiscale = $request->Codice_Fiscale;
+        $user_staff->email = $request->email;
+        $user_staff->password = $request->password;
+        $user_staff->livello = $request->livello;
+        $user_staff->Visibilità = $request->Visibilità;
+        $user_staff->Descrizione = $request->Descrizione;
+        $user_staff->save();
+
+        return redirect('membri_staff');
     }
 
     public function elimina_mioblog(int $id) {

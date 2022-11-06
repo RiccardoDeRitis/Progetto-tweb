@@ -34,4 +34,8 @@ class Post_model extends Model {
         ]);
     }
 
+    public function deletePost(int $id) {
+        Post_model::where('IDPost', '=', $id)->delete();
+    }
+
 }
