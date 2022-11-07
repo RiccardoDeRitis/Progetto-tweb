@@ -1,7 +1,8 @@
 <div class="container">
     <div class="header">
         <div class="logo" style="display: inline-block; width: fit-content;"> 
-            <a href="{{route('home')}}" title="Home"><img src="{{asset('images/logo.png')}}" alt="logo" width="210" height="80"/></a>
+            <a href="{{route('home')}}" title="Home" style="display: inline-block;"><img src="{{asset('images/logo.png')}}" alt="logo" width="210" height="80"/></a>
+            <a href="{{asset('doc/doc.pdf')}}" target="_blank" style="display: inline-block; float: right; margin-top: 7%;"><button class="sign-up"> Doc </button></a>
         </div>
         @auth   
             <div style="display: inline-block; width: 30%; float: right; margin-top: 0.7%; margin-right: 5%;">
@@ -31,12 +32,14 @@
                 @endcan
                 @can('isStaff')
                     <div class="option" style="margin-top: 1%; margin-left: 1.5%;">
+                        <button class="opt"><a href="{{ route('profile') }}" class="link-opt"><i class="fa fa-user" style="width: 20px; margin-left: 3px;"></i> I tuoi dati</a></button>
                         <button class="opt"><a href="{{ route('tutti_blog') }}" class="link-opt"><i class="fa fa-blog" style="width: 20px; margin-left: 3px;"></i> Tutti i blog </a></button>
                         <button class="opt"><a href="{{ route('utenti_iscritti') }}" class="link-opt"><i class="fa fa-user" style="width: 20px; margin-left: 3px;"></i> Utenti iscritti </a></button>
                     </div>
                 @endcan
                 @can('isAdmin')
                     <div class="option" style="margin-top: 1%; margin-left: 1.5%;">
+                        <button class="opt"><a href="{{ route('profile') }}" class="link-opt"><i class="fa fa-user" style="width: 20px; margin-left: 3px;"></i> I tuoi dati</a></button>
                         <button class="opt"><a href="{{ route('membri_staff') }}" class="link-opt"><i class="fa fa-user" style="width: 20px; margin-left: 3px;"></i> Membri staff </a></button>
                         <button class="opt"><a href="{{ route('utenti_iscritti') }}" class="link-opt"><i class="fa fa-user" style="width: 20px; margin-left: 3px;"></i> Utenti iscritti </a></button>
                     </div>

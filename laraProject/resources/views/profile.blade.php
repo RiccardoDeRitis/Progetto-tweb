@@ -33,14 +33,16 @@
             <p class="user_camp2" style="display: inline-block"> E-Mail </p>
             <p class="user_data1" style="display: inline-block"> {{ Auth::user()->email }} </p>
         </div>
-        <div class="user_data">
-            <p class="user_camp2" style="display: inline-block"> Visibilità </p>
-            @if (Auth::user()->Visibilità == 's')
-                <p class="user_data1" style="display: inline-block"> Tutti </p>
-            @else
-                <p class="user_data1" style="display: inline-block"> Solo amici </p>
-            @endif
-        </div>
+        @can('isUser')
+            <div class="user_data">
+                <p class="user_camp2" style="display: inline-block"> Visibilità </p>
+                @if (Auth::user()->Visibilità == 's')
+                    <p class="user_data1" style="display: inline-block"> Tutti </p>
+                @else
+                    <p class="user_data1" style="display: inline-block"> Solo amici </p>
+                @endif
+            </div>
+        @endcan
         <div class="user_data">
             <p class="user_camp1" style="display: inline-block"> Anni </p>
             <p class="user_data1" style="display: inline-block"> {{ Auth::user()->Anni }} </p>
@@ -50,13 +52,15 @@
         <p class="user_desc"> Descrizione: </p>
         <p class="user_data1" style="width: 80%; margin-left: 0"> {{Auth::user()->Descrizione}} </p>
     </div>
-    <div class="user_data" style="margin-left: 13%">
-        <p class="user_desc" style="display: inline-block"> N° di amici </p>
-        <p class="user_data1" style="display: inline-block"> {{$numAmici}} </p>
-    </div>
-    <div class="user_data" style="margin-left: 13%;">
-        <p class="user_desc" style="display: inline-block; width: 11%;"> N° di blog creati </p>
-        <p class="user_data1" style="display: inline-block; margin-left: 3%"> {{$numBlog}} </p>
-    </div>
+    @can('isUser')
+        <div class="user_data" style="margin-left: 13%">
+            <p class="user_desc" style="display: inline-block"> N° di amici </p>
+            <p class="user_data1" style="display: inline-block"> {{$numAmici}} </p>
+        </div>
+        <div class="user_data" style="margin-left: 13%;">
+            <p class="user_desc" style="display: inline-block; width: 11%;"> N° di blog creati </p>
+            <p class="user_data1" style="display: inline-block; margin-left: 3%"> {{$numBlog}} </p>
+        </div>
+    @endcan
 </div>
 @endsection
