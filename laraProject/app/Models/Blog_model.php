@@ -17,8 +17,7 @@ class Blog_model extends Model {
     }
     
     public function getBlogsByUser(int $id) {
-        $blogs = Blog_model::select(['Blog.*'])
-                        ->where('IDUtente', '=', $id)->get();
+        $blogs = Blog_model::where('IDUtente', '=', $id)->get();
         return $blogs;
     }
     
@@ -33,6 +32,10 @@ class Blog_model extends Model {
 
     public function getNumBlog(int $id) {
         return Blog_model::where('IDUtente', '=', $id)->count();
+    }
+
+    public function getNumBlogs() {
+        return Blog_model::get()->count();
     }
 
 }

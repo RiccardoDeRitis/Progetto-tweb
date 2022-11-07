@@ -45,7 +45,9 @@ class UserController extends Controller
 
     public function getAllUsers() {
         $users = $this->user_model->getAllUsers();
+        $numBlogs = $this->blog_model->getNumBlogs();
         return view('utenti_iscritti')
+                ->with('numBlogs', $numBlogs)
                 ->with('utenti', $users);
     }
 

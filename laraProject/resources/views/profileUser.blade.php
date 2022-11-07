@@ -19,6 +19,11 @@
         <h1 class="title_profile" style="display: inline-block; font-size: 28px;"> N° di amici: </h1>
         <h1 class="title_profile" style="display: inline-block; margin-left: 3%; font-size: 28px;"> {{$numAmici}} </h1>
     </div>
+    @can('isAdmin')
+        <div style="display: inline-block; width: 20%;">
+            <a href="{{route('amici_user', [$user->id])}}" class="title_profile" style="text-decoration: underline; color: black; cursor: pointer;"> Visualizza amici </a>
+        </div>
+    @endcan
     <div>
         <h1 class="title_profile" style="font-size: 28px; margin-left: 6%;"> Profilo: </h1>
         <h1 class="title_profile" style="width: 100%; font-size: 28px; margin-left: 6%;"> {{$user->Descrizione}} </h1>

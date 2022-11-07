@@ -35,6 +35,8 @@ Route::post('/messaggi', 'MessaggiController@getMessage')->name('messaggi');
 
 Route::get('/amici', 'AmiciController@getAmici')->name('amici');
 
+Route::get('/amici_user/{id}', 'AmiciController@getAmiciUser')->name('amici_user');
+
 Route::get('/profileUser/{id}', 'UserController@getProfileUser')->name('profileUser');
 
 Route::get('/blogsPage', 'userController@getBlogs')->name('blogsPage');

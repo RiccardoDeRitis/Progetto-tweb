@@ -3,7 +3,8 @@
 
 @section('content')
 
-<h1 class="title_profile"> Utenti iscritti {{count($utenti)}} </h1>
+<h1 class="title_profile" style="display: inline-block;"> Utenti iscritti {{count($utenti)}} </h1>
+<h1 class="title_profile" style="display: inline-block;"> Numero di blog creati: {{$numBlogs}} </h1>
 <hr size="3" align="center" width="90%" color="#008CBA" noshade>
 @if(count($utenti) == 0)
     <p class="title_profile"> Nessun utente iscritto </p>
