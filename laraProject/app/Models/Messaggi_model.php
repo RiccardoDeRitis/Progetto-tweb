@@ -35,7 +35,7 @@ class Messaggi_model extends Model {
         ]);
     }
 
-    public function deletePost(int $id1, int $id2) {
+    public function removePost(int $id1, int $id2) {
         Messaggi_model::create([
             'IDUtente' => $id1,
             'IDUtenteRichiesta' => $id2,

@@ -8,6 +8,7 @@ use App\Models\Blog_model;
 use App\Http\Requests\BlogCreateRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests\StaffRequest;
+use Illuminate\Support\Facades\Hash;
 use auth;
 
 class UserController extends Controller
@@ -112,7 +113,7 @@ class UserController extends Controller
             ]);
         }
                 
-          return redirect(route('profile'));
+          return redirect('profile');
     }
 
     public function search() {
@@ -162,7 +163,7 @@ class UserController extends Controller
         $user_staff->Anni = $request->Anni;
         $user_staff->Codice_Fiscale = $request->Codice_Fiscale;
         $user_staff->email = $request->email;
-        $user_staff->password = $request->password;
+        $user_staff->password = Hash::make($request->password);
         $user_staff->livello = $request->livello;
         $user_staff->Visibilità = $request->Visibilità;
         $user_staff->Descrizione = $request->Descrizione;

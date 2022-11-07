@@ -57,12 +57,18 @@ class PostController extends Controller
         return back();
     }
 
-    public function deletePost(int $idPost, int $id) {
-        $livello = Auth::user()->livello;
-        if ($livello == 'staff' || $livello == 'amministratore') {
-            $this->messaggi_model->deletePost($id, Auth::user()->id);
-        }
+    public function deletePost() {
+        $id = $_GET['idPost'];
+        $this->post_model->deletePost($id);
+        return back();
+    }
+
+    public function removePost() {
+        $idPost = $_GET['idPost'];
+        $idUtente = $_GET['idUtente'];
         $this->post_model->deletePost($idPost);
+        $this->messaggi_model->removePost($idUtente, $idUtente);
+        return back();
     }
     
 }

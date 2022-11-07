@@ -65,4 +65,6 @@ Route::view('/aggiungi_staff_view', 'aggiungi_staff_view')->name('aggiungi_staff
 
 Route::post('/aggiungi_staff', 'UserController@addStaff')->name('aggiungi_staff');
 
-Route::get('/cancella_post/{idPost}/{id}', 'PostController@deletePost')->name('cancella_post');
+Route::get('/cancella_post', 'PostController@deletePost')->name('cancella_post');
+
+Route::get('/rimuovi_post', 'PostController@removePost')->name('rimuovi_post');

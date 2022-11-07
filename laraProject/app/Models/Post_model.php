@@ -38,4 +38,8 @@ class Post_model extends Model {
         Post_model::where('IDPost', '=', $id)->delete();
     }
 
+    public function getAllPosts() {
+        return Post_model::get();
+    }
+
 }

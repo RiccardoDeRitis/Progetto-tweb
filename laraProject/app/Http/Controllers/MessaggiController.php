@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Messaggi_model;
 use App\Models\User_model;
-use Illuminate\Http\Request;
 
 class MessaggiController extends Controller
 {
@@ -20,10 +19,11 @@ class MessaggiController extends Controller
     public function getMessage() {
         $id = $_POST['id'];
         $messages = $this->messaggi_model->getAllMessage($id);
-        $users = $this->user_model->getUsers();
+        $users = $this->user_model->getAllUsers();
         return view('lista_messaggi')
                     ->with('messaggi', $messages)
                     ->with('utenti', $users);
+                    
     }
     
 }

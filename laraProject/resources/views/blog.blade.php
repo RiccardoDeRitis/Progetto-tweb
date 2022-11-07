@@ -40,13 +40,24 @@
                 <h1 class="title_profile" style="font-size: 22px; margin-top:0; float: right; margin-right: 2%; display: inline-block;"> {{$post->Data}} </h1>
                 <h1 class="title_profile" style="display: inline-block; font-size: 28px; width: 85%;">{{$post->Descrizione}}</h1>
                 @if ($user->id == Auth::user()->id)
-                    <a href="{{route('cancella_post', [$post->id, $user->id])}}" class="send_request" style="margin-left: 5%;"><span aria-hidden="true"><i class="fa fa-trash"></i></span></button>
+                    <form method="GET" action="{{route('cancella_post')}}" style="display: inline-block;">
+                        <input type="hidden" name="idPost" value={{$post->IDPost}}>
+                        <button type="submit" class="send_request" style="margin-left: 5%;"><span aria-hidden="true"><i class="fa fa-trash"></i></span></button>
+                    </form>    
                 @endif
                 @can('isStaff')
-                    <a href="{{route('cancella_post', [$post->id, $user->id])}}" class="send_request" style="margin-left: 5%;"><span aria-hidden="true"><i class="fa fa-trash"></i></span></button>
+                    <form method="GET" action="{{route('rimuovi_post')}}" style="display: inline-block;">
+                        <input type="hidden" name="idPost" value={{$post->IDPost}}>
+                        <input type="hidden" name="idUtente" value={{$user->id}}>
+                        <button type="submit" class="send_request" style="margin-left: 5%;"><span aria-hidden="true"><i class="fa fa-trash"></i></span></button>
+                    </form>
                 @endcan
                 @can('isAdmin')
-                    <a href="{{route('cancella_post', [$post->id, $user->id])}}" class="send_request" style="margin-left: 5%;"><span aria-hidden="true"><i class="fa fa-trash"></i></span></button>
+                    <form method="GET" action="{{route('rimuovi_post')}}" style="display: inline-block;">
+                        <input type="hidden" name="idPost" value={{$post->IDPost}}>
+                        <input type="hidden" name="idUtente" value={{$user->id}}>
+                        <button type="submit" class="send_request" style="margin-left: 5%;"><span aria-hidden="true"><i class="fa fa-trash"></i></span></button>
+                    </form>                
                 @endcan
                 @break
             @endif 
