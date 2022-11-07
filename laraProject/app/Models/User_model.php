@@ -42,5 +42,10 @@ class User_model extends Model {
                             ->where('IDBlog', '=', $IDBlog)
                             ->select('users.Nome', 'users.Cognome')->get();
     }
+    
+    public function deleteStaff(int $id) {
+        $users = User_model::where('id', '=', $id)->delete();
+        return $users;
+    }
 
 }

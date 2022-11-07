@@ -105,6 +105,6 @@
             @endif
     </div>
     
-    <button class="button" type="submit">Conferma</button>
+    <button class="mod" type="submit" style="margin-bottom: 13%">Conferma</button>
 </form>
 @endsection
