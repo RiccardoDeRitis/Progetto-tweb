@@ -179,4 +179,11 @@ class UserController extends Controller
         return redirect('miei_blog');
     }
     
+    public function elimina_staff(int $id) {
+        $user = $this->user_model->deleteStaff($id);
+       
+        return redirect('membri_staff')
+                           ->with('utenti', $user);
+    }
+    
 }
