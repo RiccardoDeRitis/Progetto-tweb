@@ -17,7 +17,6 @@
                 <p class="errorPass" style="color: #f93d00">  • 'Password' è richiesto </p>
             </div>
             <button type="submit" class="log"> Accedi </button>
-            <a class="forgot-pass">Password dimenticata?</a>
             <script>
                 $('.errorLogin1').hide();
                 $('.errorLogin2').hide();
