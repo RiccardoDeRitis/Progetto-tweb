@@ -2,7 +2,6 @@
     <div class="header">
         <div class="logo" style="display: inline-block; width: fit-content;"> 
             <a href="{{route('home')}}" title="Home" style="display: inline-block;"><img src="{{asset('images/logo.png')}}" alt="logo" width="210" height="80"/></a>
-            <a href="{{asset('doc/doc.pdf')}}" target="_blank" style="display: inline-block; float: right; margin-top: 7%;"><button class="sign-up"> Doc </button></a>
         </div>
         @auth   
             <div style="display: inline-block; width: 30%; float: right; margin-top: 0.7%; margin-right: 5%;">

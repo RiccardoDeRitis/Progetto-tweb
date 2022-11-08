@@ -7,6 +7,7 @@
                 <a href="{{route('chi_siamo')}}" class="links"><h4 class="group-h4" style="width: fit-content;">Chi siamo?</h4></a>
                 <p> Indirizzo: Via Roma 55, Ancona (AN) </p>
                 <p> P.Iva: 1234567890 </p>
+                <a href="{{asset('doc/doc.pdf')}}" target="_blank" class="links"><h4 class="group-h4" style="width: fit-content;"> Documentazione </h4></a>
             </ul>
             <ul class="card">
                 <h3 class="azienda-h3"> Social links </h3>
